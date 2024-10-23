@@ -39,8 +39,8 @@ public class CommandLineTool {
         final Strategy strategy = this.strategyFactory.getStrategy(command);
 
         try {
-            strategy.interact();
-            strategy.execute(Map.of());
+            Map<String, Object> params = strategy.interact();
+            strategy.execute(params);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
